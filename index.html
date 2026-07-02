@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanAuto Lab — Votre voiture propre partout, en une seule visite · 80€</title>
+<meta name="description" content="CleanAuto Lab · Le nettoyage automobile complet à prix simple. Intérieur, extérieur, jantes, vitres déperlantes. 80€ tout inclus. 6 route de Sermoise.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+/* ================================================================
+   RESET & BASE
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0F1419;
+  line-height: 1.6;
+  background: #fff;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* ================================================================
+   BRAND VARIABLES
+   ================================================================ */
+:root {
+  --turquoise-light: #7DD3D8;
+  --turquoise: #2FA5AB;
+  --turquoise-dark: #24888D;
+  --black: #0F1419;
+  --black-soft: #1A1D24;
+  --gray-body: #4A5058;
+  --gray-muted: #6B7280;
+  --border: #E0EEF0;
+  --bg-light: #F5FBFC;
+  --bg-alt: #E4F3F5;
+  --star-yellow: #F5A623;
+}
+
+/* ================================================================
+   BUTTONS & UTILITIES
+   ================================================================ */
+.btn { padding: 14px 26px; border-radius: 40px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; }
+.btn-primary { background: var(--turquoise); color: #fff; }
+.btn-primary:hover { background: var(--turquoise-dark); transform: translateY(-1px); }
+.btn-dark { background: var(--black); color: #fff; }
+.btn-dark:hover { background: var(--turquoise); }
+.btn-outline { background: #fff; color: var(--black); border: 2px solid var(--black); }
+.btn-outline:hover { background: var(--black); color: #fff; }
+.btn-instagram { background: linear-gradient(45deg, #833AB4 0%, #E1306C 50%, #F77737 100%); color: #fff; }
+.eyebrow { color: var(--turquoise); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.text-link { color: var(--black); font-weight: 700; font-size: 14px; border-bottom: 2px solid var(--turquoise); padding-bottom: 3px; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+.text-link:hover { gap: 12px; }
+.section-title { font-size: clamp(30px, 4vw, 46px); margin-bottom: 14px; }
+.section-title-alt { font-weight: 500; color: var(--gray-muted); }
+
+/* ================================================================
+   HEADER (sticky)
+   ================================================================ */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  transition: box-shadow 0.3s;
+}
+.header.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--turquoise-light) 0%, var(--turquoise) 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(47, 165, 171, 0.3);
+}
+.logo-icon i { color: #fff; font-size: 20px; }
+.logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; line-height: 1; }
+.logo-text .clean { color: var(--turquoise); }
+.logo-text .auto { color: var(--black); }
+.logo-text .lab { color: var(--turquoise); font-size: 11px; margin-left: 4px; letter-spacing: 1px; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { padding: 10px 18px; font-weight: 600; font-size: 14px; transition: color 0.2s; }
+.nav a:hover { color: var(--turquoise); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+  position: relative;
+  padding: 130px 0 90px;
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-alt) 100%);
+  overflow: hidden;
+}
+.hero-bubbles { position: absolute; inset: 0; pointer-events: none; }
+.bubble {
+  position: absolute;
+  background: var(--turquoise-light);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+.bubble:nth-child(1) { width: 60px; height: 60px; top: 15%; right: 8%; opacity: 0.35; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 30px; height: 30px; top: 30%; right: 20%; opacity: 0.4; animation-delay: 1s; }
+.bubble:nth-child(3) { width: 20px; height: 20px; top: 50%; right: 12%; opacity: 0.5; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 40px; height: 40px; bottom: 20%; left: 5%; opacity: 0.25; animation-delay: 0.5s; }
+.bubble:nth-child(5) { width: 16px; height: 16px; bottom: 30%; left: 20%; opacity: 0.4; animation-delay: 1.5s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+.hero-grid { display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center; position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--turquoise-light);
+  padding: 8px 18px; border-radius: 30px;
+  margin-bottom: 26px;
+  font-size: 13px; font-weight: 700; color: var(--black);
+}
+.hero-tag .dot-pulse { width: 8px; height: 8px; background: var(--turquoise); border-radius: 50%; }
+.hero h1 { font-size: clamp(36px, 5.5vw, 64px); margin-bottom: 20px; }
+.hero h1 .highlight { color: var(--turquoise); }
+.hero-sub { color: var(--gray-body); font-size: clamp(15px, 1.5vw, 19px); margin-bottom: 32px; max-width: 550px; }
+.hero-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.price-badge {
+  background: #fff;
+  border-radius: 50%;
+  width: 240px; height: 240px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 16px 44px rgba(47, 165, 171, 0.35);
+  border: 4px solid var(--turquoise-light);
+  position: relative;
+  margin: 0 auto;
+}
+.price-badge-label { font-size: 13px; color: var(--gray-body); font-weight: 600; margin-bottom: 2px; }
+.price-badge-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800; font-size: 82px;
+  color: var(--black); line-height: 0.9;
+}
+.price-badge-num span { font-size: 38px; color: var(--turquoise); }
+.price-badge-caption { font-size: 12px; color: var(--gray-body); margin-top: 6px; }
+.price-badge-flag {
+  position: absolute; top: -14px; right: -16px;
+  background: var(--black); color: #fff;
+  font-size: 11px; font-weight: 800;
+  padding: 7px 14px; border-radius: 20px;
+  transform: rotate(8deg);
+}
+
+/* ================================================================
+   INFO BAR (adresse, durée, café)
+   ================================================================ */
+.info-bar { padding: 30px 0; background: #fff; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.info-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.info-item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(47, 165, 171, 0.1); }
+.info-item.highlight { border: 2px solid var(--turquoise-light); background: linear-gradient(135deg, #fff 0%, var(--bg-light) 100%); }
+.info-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--turquoise-light) 0%, var(--turquoise) 100%);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.info-icon i { color: #fff; font-size: 24px; }
+.info-title { font-size: 16px; margin-bottom: 4px; }
+.info-desc { color: var(--gray-body); font-size: 13px; line-height: 1.4; }
+
+/* ================================================================
+   REASSURANCE (4 cards avec CTAs)
+   ================================================================ */
+.reassurance { padding: 80px 0; background: #fff; }
+.reassurance-header { text-align: center; margin-bottom: 40px; }
+.reassurance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.reassurance-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 22px;
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.reassurance-card:hover {
+  border-color: var(--turquoise);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(47, 165, 171, 0.15);
+}
+.reassurance-icon {
+  width: 48px; height: 48px;
+  background: var(--bg-light);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.reassurance-icon i { font-size: 24px; color: var(--turquoise); }
+.reassurance-icon.star i { color: var(--star-yellow); }
+.reassurance-card h4 { font-size: 17px; margin-bottom: 8px; }
+.reassurance-card p { color: var(--gray-body); font-size: 13px; line-height: 1.5; margin-bottom: 16px; }
+.reassurance-cta { color: var(--turquoise); font-weight: 700; font-size: 13px; margin-top: auto; display: inline-flex; align-items: center; gap: 6px; }
+
+/* ================================================================
+   NOS PRODUITS (dark section)
+   ================================================================ */
+.produits { background: var(--black); padding: 90px 0; position: relative; overflow: hidden; }
+.produits::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(125, 211, 216, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.produits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; }
+.produits-content h2 { color: #fff; font-size: 40px; margin-bottom: 20px; }
+.produits-content h2 .highlight { color: var(--turquoise-light); }
+.produits-content .eyebrow { color: var(--turquoise-light); }
+.produits-content p { color: #C4C8CD; font-size: 15px; margin-bottom: 16px; line-height: 1.7; }
+.produits-content p strong { color: #fff; }
+.produits-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.stat-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(125, 211, 216, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.stat-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.1); }
+.stat-card i { font-size: 34px; color: var(--turquoise-light); }
+.stat-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800; font-size: 30px;
+  color: #fff; margin-top: 10px; line-height: 1;
+}
+.stat-num small { font-size: 18px; }
+.stat-label { color: var(--turquoise-light); font-size: 11px; font-weight: 700; margin-top: 6px; letter-spacing: 0.8px; }
+
+/* ================================================================
+   INCLUS (Tout ce qui est inclus dans la formule)
+   ================================================================ */
+.inclus { background: var(--bg-light); padding: 90px 0; }
+.inclus-header { text-align: center; margin-bottom: 44px; }
+.inclus-header p { color: var(--gray-body); max-width: 540px; margin: 0 auto; }
+.inclus-block { margin-bottom: 30px; }
+.inclus-block-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.inclus-badge {
+  width: 42px; height: 42px;
+  background: var(--turquoise-light);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.inclus-badge i { font-size: 22px; color: var(--black); }
+.inclus-block h3 { font-size: 24px; }
+.inclus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.inclus-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  display: flex; gap: 12px; align-items: flex-start;
+  transition: all 0.2s;
+}
+.inclus-item:hover { border-color: var(--turquoise-light); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(47, 165, 171, 0.1); }
+.inclus-item.featured {
+  border: 2px solid var(--turquoise-light);
+  background: linear-gradient(135deg, #fff 0%, var(--bg-light) 100%);
+}
+.inclus-item i { color: var(--turquoise); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+.inclus-item-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 14px; margin-bottom: 2px; }
+.inclus-item-desc { color: var(--gray-muted); font-size: 12.5px; line-height: 1.5; }
+.inclus-price-card {
+  background: var(--black);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+.inclus-price-card .price {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800; font-size: 32px;
+  color: var(--turquoise-light); line-height: 1;
+}
+.inclus-price-card .label { color: #fff; font-size: 12px; font-weight: 700; margin-top: 4px; }
+.inclus-footnote { color: var(--gray-muted); font-size: 12px; font-style: italic; margin-top: 10px; }
+
+/* ================================================================
+   RÉALISATIONS
+   ================================================================ */
+.realisations { background: #fff; padding: 90px 0; }
+.realisations-header { text-align: center; margin-bottom: 40px; }
+.realisations-header p { color: var(--gray-body); max-width: 500px; margin: 0 auto; }
+.realisations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.real-card {
+  aspect-ratio: 4/5;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.real-card:hover { transform: scale(1.03); }
+.real-card-bg {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.real-card-bg i { font-size: 80px; color: rgba(125, 211, 216, 0.4); }
+.real-card-bg-1 { background: linear-gradient(135deg, var(--black), #3a4049); }
+.real-card-bg-2 { background: linear-gradient(135deg, #2a2a2a, #4a4a4a); }
+.real-card-bg-3 { background: linear-gradient(135deg, #0F1116, #2a2d34); }
+.real-card-bg-4 { background: linear-gradient(135deg, #3a3a3a, #5a5a5a); }
+.real-card-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 18px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+  color: #fff;
+}
+.real-card-overlay-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; }
+.real-card-overlay-sub { font-size: 12px; opacity: 0.85; margin-top: 3px; }
+.realisations-cta { text-align: center; margin-top: 30px; }
+
+/* ================================================================
+   INSTAGRAM SOCIAL PROOF
+   ================================================================ */
+.instagram { background: linear-gradient(135deg, #FBE9F0 0%, #F5FBFC 50%, #E4F3F5 100%); padding: 80px 0; position: relative; overflow: hidden; }
+.instagram::before {
+  content: ''; position: absolute; top: 30px; left: 40px;
+  width: 40px; height: 40px; background: rgba(255, 255, 255, 0.5); border-radius: 50%;
+}
+.instagram::after {
+  content: ''; position: absolute; bottom: 30px; right: 60px;
+  width: 30px; height: 30px; background: rgba(125, 211, 216, 0.4); border-radius: 50%;
+}
+.instagram-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; position: relative; }
+.instagram-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; padding: 8px 18px; border-radius: 30px;
+  margin-bottom: 22px;
+  font-size: 13px; font-weight: 700; color: var(--black);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+.instagram-tag i { color: #E1306C; }
+.instagram-content h2 { font-size: 38px; margin-bottom: 16px; }
+.instagram-content p { color: var(--gray-body); font-size: 16px; margin-bottom: 28px; max-width: 440px; }
+.instagram-stats { display: flex; gap: 28px; margin-bottom: 28px; }
+.stat-big-num { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 42px; color: var(--black); line-height: 1; }
+.stat-big-label { color: var(--gray-body); font-size: 13px; font-weight: 600; margin-top: 6px; }
+.stat-divider { width: 1px; background: #D8DDE0; }
+.instagram-posts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ig-post {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.ig-post:hover { transform: scale(1.04); }
+.ig-post-1 { background: linear-gradient(135deg, var(--black), #3a4049); }
+.ig-post-2 { background: linear-gradient(135deg, #2a2a2a, #4a4a4a); }
+.ig-post-3 { background: linear-gradient(135deg, #0F1116, #2a2d34); }
+.ig-post-4 { background: linear-gradient(135deg, #3a3a3a, #5a5a5a); }
+.ig-post i { font-size: 40px; color: rgba(125, 211, 216, 0.6); }
+.ig-post-meta { position: absolute; bottom: 8px; left: 8px; color: #fff; font-size: 11px; font-weight: 700; }
+
+/* ================================================================
+   TÉMOIGNAGES
+   ================================================================ */
+.testimonials { background: #fff; padding: 90px 0; }
+.testimonials-header { text-align: center; margin-bottom: 40px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testimonial {
+  background: var(--bg-light);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+}
+.testimonial-stars { color: var(--star-yellow); font-size: 17px; letter-spacing: 3px; margin-bottom: 14px; }
+.testimonial-text { color: var(--black); font-size: 14px; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--turquoise-light);
+  color: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800; font-size: 16px;
+}
+.testimonial-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; }
+.testimonial-source { color: var(--gray-muted); font-size: 11.5px; margin-top: 2px; }
+.testimonials-cta { text-align: center; margin-top: 34px; }
+
+/* ================================================================
+   NOUS TROUVER
+   ================================================================ */
+.nous-trouver { background: var(--bg-light); padding: 90px 0; }
+.nous-trouver-grid {
+  background: #fff; border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr;
+  box-shadow: 0 12px 40px rgba(47, 165, 171, 0.1);
+}
+.map-visual {
+  background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg-light) 100%);
+  position: relative;
+  min-height: 380px;
+}
+.map-road-1 { position: absolute; top: 40%; left: 0; right: 0; height: 8px; background: #fff; opacity: 0.9; }
+.map-road-2 { position: absolute; top: 60%; left: 25%; width: 8px; bottom: 0; background: #fff; opacity: 0.9; }
+.map-road-3 { position: absolute; top: 10%; left: 65%; width: 8px; bottom: 50%; background: #fff; opacity: 0.9; }
+.map-green-1 { position: absolute; top: 8%; left: 8%; width: 80px; height: 50px; background: #B8E5CC; border-radius: 10px; opacity: 0.5; }
+.map-green-2 { position: absolute; bottom: 15%; right: 8%; width: 100px; height: 70px; background: #B8E5CC; border-radius: 10px; opacity: 0.5; }
+.map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); }
+.map-pin-marker {
+  width: 56px; height: 56px;
+  background: var(--turquoise);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 26px rgba(47, 165, 171, 0.5);
+}
+.map-pin-marker i { color: #fff; font-size: 26px; transform: rotate(45deg); }
+.map-pin-label {
+  position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+  background: var(--black); color: #fff;
+  padding: 5px 12px; border-radius: 4px;
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+}
+.map-demo-note {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(15, 20, 25, 0.7); color: #fff;
+  padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 600;
+}
+.trouver-content { padding: 40px; }
+.trouver-content h3 { font-size: 32px; margin-bottom: 18px; }
+.address-block {
+  background: var(--bg-light);
+  border-left: 4px solid var(--turquoise);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 22px;
+}
+.address-street { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 4px; }
+.address-sub { color: var(--gray-body); font-size: 13px; }
+.contact-line { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.contact-line i { font-size: 17px; color: var(--turquoise); }
+.contact-line p { font-size: 14px; color: var(--gray-body); }
+.contact-line strong { color: var(--black); }
+.trouver-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.trouver-actions .btn { padding: 12px 22px; font-size: 13px; }
+
+/* ================================================================
+   CALENDRIER RÉSERVATION
+   ================================================================ */
+.calendrier { background: #fff; padding: 90px 0; }
+.calendrier-header { text-align: center; margin-bottom: 40px; }
+.calendrier-header p { color: var(--gray-body); max-width: 500px; margin: 0 auto; }
+.calendrier-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(47, 165, 171, 0.15);
+  border: 1px solid var(--border);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cal-month-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.cal-month-title { display: flex; align-items: center; gap: 10px; }
+.cal-month-title i { font-size: 22px; color: var(--gray-body); cursor: pointer; padding: 4px; }
+.cal-month-title i:hover { color: var(--turquoise); }
+.cal-month-title h4 { font-size: 20px; }
+.cal-realtime { display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 6px 14px; border-radius: 20px; }
+.cal-realtime-dot { width: 8px; height: 8px; background: var(--turquoise); border-radius: 50%; animation: pulse 2s infinite; }
+.cal-realtime span { font-size: 12px; font-weight: 700; color: var(--turquoise); }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 26px; }
+.cal-day {
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+}
+.cal-day:not(.full):hover { border-color: var(--turquoise-light); }
+.cal-day.selected { background: var(--black); border-color: var(--black); color: #fff; }
+.cal-day.full { background: #F5F7F8; color: #B0B5BA; border-color: #F0F2F3; cursor: not-allowed; }
+.cal-day-name { font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.cal-day-num { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; margin: 6px 0; }
+.cal-day-status { font-size: 10px; font-weight: 700; }
+.cal-day-status.available { color: var(--turquoise); }
+.cal-day-status.limited { color: var(--star-yellow); }
+.cal-day.selected .cal-day-status { color: var(--turquoise-light); }
+.cal-slots-box { background: var(--bg-light); border-radius: 14px; padding: 22px; }
+.cal-slots-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.cal-slots-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 16px; }
+.cal-slots-info { font-size: 12px; font-weight: 700; color: var(--turquoise); }
+.cal-slots-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 14px; }
+.cal-slot {
+  border: 2px solid var(--border);
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 700; font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--black);
+}
+.cal-slot:hover { border-color: var(--turquoise); }
+.cal-slot.selected { background: var(--turquoise); color: #fff; border-color: var(--turquoise); }
+.cal-slot.taken { background: #F5F7F8; color: #B0B5BA; border-color: #F0F2F3; cursor: not-allowed; text-decoration: line-through; }
+.cal-info-note {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px dashed var(--turquoise-light);
+  margin-top: 14px;
+}
+.cal-info-note i { font-size: 20px; color: var(--turquoise); flex-shrink: 0; }
+.cal-info-note p { font-size: 13px; line-height: 1.5; }
+.cal-info-note strong { color: var(--black); }
+.cal-submit { margin-top: 26px; text-align: center; }
+.cal-submit .btn { padding: 18px 40px; font-size: 16px; width: 100%; max-width: 400px; }
+.cal-submit-note { color: var(--gray-muted); font-size: 12px; margin-top: 12px; }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.footer { background: var(--black); padding: 70px 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+.footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-brand-logo .logo-icon { width: 36px; height: 36px; }
+.footer-brand-logo .logo-icon i { font-size: 18px; }
+.footer-brand-logo .logo-text .clean, .footer-brand-logo .logo-text .lab { color: var(--turquoise-light); }
+.footer-brand-logo .logo-text .auto { color: #fff; }
+.footer-baseline { color: #9A9890; font-size: 13px; line-height: 1.6; max-width: 320px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 10px; }
+.footer-social a {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--black-soft);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.footer-social a:hover { background: var(--turquoise); }
+.footer-social i { color: var(--turquoise-light); font-size: 17px; }
+.footer-social a:hover i { color: #fff; }
+.footer-col h4 {
+  color: #fff; font-size: 12px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+.footer-col a { color: #9A9890; font-size: 13px; display: block; padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--turquoise-light); }
+.footer-address { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.footer-address i { color: var(--turquoise-light); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+.footer-address-street { color: #fff; font-weight: 700; font-size: 13px; }
+.footer-address-link { color: var(--turquoise-light); font-size: 11px; text-decoration: underline; }
+.footer-schedule { display: flex; align-items: center; gap: 10px; }
+.footer-schedule i { color: var(--turquoise-light); font-size: 16px; }
+.footer-schedule p { color: #9A9890; font-size: 12.5px; }
+.footer-bottom {
+  border-top: 1px solid var(--black-soft);
+  padding-top: 24px;
+  text-align: center;
+  color: var(--gray-muted);
+  font-size: 12px;
+}
+
+/* ================================================================
+   CHATBOT
+   ================================================================ */
+.chatbot {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--turquoise);
+  color: #fff;
+  padding: 14px 22px 14px 56px;
+  border-radius: 40px;
+  font-weight: 700; font-size: 14px;
+  box-shadow: 0 10px 30px rgba(47, 165, 171, 0.45);
+  cursor: pointer;
+  z-index: 99;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; align-items: center; gap: 4px;
+}
+.chatbot:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(47, 165, 171, 0.55); }
+.chatbot::before {
+  content: '';
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px;
+  background: #fff;
+  border-radius: 50%;
+}
+.chatbot-icon {
+  position: absolute; left: 21px; top: 50%; transform: translateY(-50%);
+  color: var(--turquoise); font-size: 20px;
+}
+
+/* ================================================================
+   RESPONSIVE (mobile-first fallbacks)
+   ================================================================ */
+@media (max-width: 968px) {
+  .nav { display: none; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .price-badge { margin: 30px auto 0; }
+  .info-grid { grid-template-columns: 1fr; }
+  .reassurance-grid { grid-template-columns: repeat(2, 1fr); }
+  .produits-grid { grid-template-columns: 1fr; }
+  .inclus-grid { grid-template-columns: repeat(2, 1fr); }
+  .realisations-grid { grid-template-columns: repeat(2, 1fr); }
+  .instagram-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .nous-trouver-grid { grid-template-columns: 1fr; }
+  .cal-slots-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 110px 0 60px; }
+  .reassurance-grid { grid-template-columns: 1fr; }
+  .inclus-grid { grid-template-columns: 1fr; }
+  .realisations-grid { grid-template-columns: 1fr 1fr; }
+  .cal-days { grid-template-columns: repeat(4, 1fr); }
+  .cal-slots-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .chatbot { bottom: 16px; right: 16px; padding: 12px 18px 12px 48px; font-size: 12px; }
+}
+
+/* ================================================================
+   ANIMATIONS AU SCROLL
+   ================================================================ */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ================================ HEADER ================================ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="ti ti-car"></i></div>
+      <div class="logo-text">
+        <span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#formule">La formule</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#nous-trouver">Le centre</a>
+      <a href="#temoignages">Avis</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#calendrier" class="btn btn-primary" style="padding: 10px 22px; font-size: 13px;">Réserver — 80€</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================================ HERO ================================ -->
+<section class="hero">
+  <div class="hero-bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-tag">
+        <span class="dot-pulse"></span>
+        Une formule complète, un prix simple
+      </div>
+      <h1>Votre voiture <span class="highlight">propre partout</span>. En une seule visite.</h1>
+      <p class="hero-sub">Intérieur, extérieur, jantes, vitres déperlantes. Tout est inclus, dans notre atelier. Sans surprise à la caisse.</p>
+      <div class="hero-cta-row">
+        <a href="#calendrier" class="btn btn-primary">Je réserve mon créneau →</a>
+        <a href="#formule" class="text-link">Voir ce qui est inclus</a>
+      </div>
+    </div>
+    <div class="price-badge">
+      <div class="price-badge-flag">SIMPLE ✦</div>
+      <p class="price-badge-label">Tout inclus</p>
+      <div class="price-badge-num">80<span>€</span></div>
+      <p class="price-badge-caption">une seule formule</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ INFO BAR ================================ -->
+<section class="info-bar">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item highlight">
+        <div class="info-icon"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <p class="info-title">6 route de Sermoise</p>
+          <p class="info-desc">Vous nous confiez votre véhicule sur place</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><i class="ti ti-clock-hour-3"></i></div>
+        <div>
+          <p class="info-title">3h30 en moyenne</p>
+          <p class="info-desc">Prestation complète, sans course</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><i class="ti ti-coffee"></i></div>
+        <div>
+          <p class="info-title">Café offert</p>
+          <p class="info-desc">Confortable pendant l'attente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ RÉASSURANCE ================================ -->
+<section class="reassurance">
+  <div class="container">
+    <div class="reassurance-header">
+      <p class="eyebrow">Pourquoi nous choisir</p>
+      <h2 class="section-title">Quatre bonnes raisons.</h2>
+    </div>
+    <div class="reassurance-grid">
+      <div class="reassurance-card">
+        <div class="reassurance-icon"><i class="ti ti-flag-3"></i></div>
+        <h4>Entreprise française</h4>
+        <p>Une équipe locale, un vrai atelier, un vrai centre.</p>
+        <a href="#nous-trouver" class="reassurance-cta">Notre centre <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-icon"><i class="ti ti-flask"></i></div>
+        <h4>Nos propres produits</h4>
+        <p>Développés par CleanCar Lab dans des laboratoires français.</p>
+        <a href="#produits" class="reassurance-cta">Découvrir <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-icon star"><i class="ti ti-star-filled"></i></div>
+        <h4>4,9 / 5 sur Google</h4>
+        <p>200+ avis de clients ravis, à lire par vous-même.</p>
+        <a href="#temoignages" class="reassurance-cta">Voir les avis <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-icon"><i class="ti ti-mood-happy"></i></div>
+        <h4>Satisfait ou retour</h4>
+        <p>Un point à retoucher ? On le refait sans discuter.</p>
+        <a href="#" class="reassurance-cta">Notre engagement <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ NOS PRODUITS ================================ -->
+<section class="produits" id="produits">
+  <div class="container produits-grid">
+    <div class="produits-content">
+      <p class="eyebrow">Notre expertise</p>
+      <h2>Chaque lavage est fait avec <span class="highlight">nos propres produits</span>.</h2>
+      <p>Tous les produits utilisés en centre sont développés par <strong>CleanCar Lab</strong>, notre partenaire spécialisé dans le detailing automobile.</p>
+      <p>Formulés dans des <strong>laboratoires français</strong>, testés par des <strong>experts du nettoyage auto</strong>. C'est notre garantie qualité, cachée dans chaque bouteille.</p>
+      <div style="margin-top: 26px;">
+        <a href="#" class="btn btn-primary">Découvrir nos produits →</a>
+      </div>
+    </div>
+    <div class="produits-stats">
+      <div class="stat-card">
+        <i class="ti ti-flask-2"></i>
+        <div class="stat-num">100%</div>
+        <p class="stat-label">MADE IN FRANCE</p>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-microscope"></i>
+        <div class="stat-num">7</div>
+        <p class="stat-label">PRODUITS EXCLUSIFS</p>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-award"></i>
+        <div class="stat-num">20<small>ans</small></div>
+        <p class="stat-label">D'EXPERTISE</p>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-shield-check"></i>
+        <div class="stat-num">✓</div>
+        <p class="stat-label">TESTÉS EXPERTS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ INCLUS ================================ -->
+<section class="inclus" id="formule">
+  <div class="container">
+    <div class="inclus-header">
+      <p class="eyebrow">La formule à 80€</p>
+      <h2 class="section-title">Tout ce qui est inclus.</h2>
+      <p>Une formule pensée pour que votre voiture ressorte propre <em>partout</em>. Rien à ajouter, rien à décocher.</p>
+    </div>
+    
+    <!-- INTÉRIEUR -->
+    <div class="inclus-block">
+      <div class="inclus-block-head">
+        <div class="inclus-badge"><i class="ti ti-armchair"></i></div>
+        <h3>Intérieur</h3>
+      </div>
+      <div class="inclus-grid">
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Aspiration complète</p>
+            <p class="inclus-item-desc">Sièges, tapis, coffre</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Nettoyage habitacle</p>
+            <p class="inclus-item-desc">Tableau de bord, portières</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Cuirs traités</p>
+            <p class="inclus-item-desc">Nettoyage + protection UV</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Plastiques protégés</p>
+            <p class="inclus-item-desc">Anti-UV, anti-salissure</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Sièges rafraîchis</p>
+            <p class="inclus-item-desc">Nettoyage courant*</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Tapis nettoyés</p>
+            <p class="inclus-item-desc">Sortis, brossés, propres</p>
+          </div>
+        </div>
+      </div>
+      <p class="inclus-footnote">*hors grosses taches, moisi et huile</p>
+    </div>
+    
+    <!-- EXTÉRIEUR -->
+    <div class="inclus-block">
+      <div class="inclus-block-head">
+        <div class="inclus-badge"><i class="ti ti-car"></i></div>
+        <h3>Extérieur</h3>
+      </div>
+      <div class="inclus-grid">
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Carrosserie</p>
+            <p class="inclus-item-desc">Lavage soigné, produits maison</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Anti-salissure</p>
+            <p class="inclus-item-desc">Protection longue tenue</p>
+          </div>
+        </div>
+        <div class="inclus-item featured">
+          <i class="ti ti-sparkles"></i>
+          <div>
+            <p class="inclus-item-title">Film brillant ★</p>
+            <p class="inclus-item-desc">Déperlant 7 à 10 jours</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Vitres déperlantes</p>
+            <p class="inclus-item-desc">L'eau file toute seule</p>
+          </div>
+        </div>
+        <div class="inclus-item">
+          <i class="ti ti-check"></i>
+          <div>
+            <p class="inclus-item-title">Jantes complètes</p>
+            <p class="inclus-item-desc">Face, dos, intérieur</p>
+          </div>
+        </div>
+        <div class="inclus-price-card">
+          <div>
+            <p class="price">80€</p>
+            <p class="label">Tout compris</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ RÉALISATIONS ================================ -->
+<section class="realisations" id="realisations">
+  <div class="container">
+    <div class="realisations-header">
+      <p class="eyebrow">Nos réalisations</p>
+      <h2 class="section-title">Ce qu'on fait chaque jour.</h2>
+      <p>Les vraies photos de nos vraies prestations. Pas de retouche, pas de filtre.</p>
+    </div>
+    <div class="realisations-grid">
+      <div class="real-card">
+        <div class="real-card-bg real-card-bg-1"><i class="ti ti-car"></i></div>
+        <div class="real-card-overlay">
+          <p class="real-card-overlay-title">BMW Série 3</p>
+          <p class="real-card-overlay-sub">Formule complète</p>
+        </div>
+      </div>
+      <div class="real-card">
+        <div class="real-card-bg real-card-bg-2"><i class="ti ti-armchair"></i></div>
+        <div class="real-card-overlay">
+          <p class="real-card-overlay-title">Intérieur cuir</p>
+          <p class="real-card-overlay-sub">Audi A4 2019</p>
+        </div>
+      </div>
+      <div class="real-card">
+        <div class="real-card-bg real-card-bg-3"><i class="ti ti-droplet"></i></div>
+        <div class="real-card-overlay">
+          <p class="real-card-overlay-title">Film brillant</p>
+          <p class="real-card-overlay-sub">Peugeot 3008</p>
+        </div>
+      </div>
+      <div class="real-card">
+        <div class="real-card-bg real-card-bg-4"><i class="ti ti-circle"></i></div>
+        <div class="real-card-overlay">
+          <p class="real-card-overlay-title">Jantes détail</p>
+          <p class="real-card-overlay-sub">Renault Clio</p>
+        </div>
+      </div>
+    </div>
+    <div class="realisations-cta">
+      <a href="#" class="text-link">Voir toutes nos réalisations <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ INSTAGRAM ================================ -->
+<section class="instagram">
+  <div class="container instagram-grid">
+    <div class="instagram-content">
+      <div class="instagram-tag">
+        <i class="ti ti-brand-instagram"></i>
+        Notre Instagram
+      </div>
+      <h2>Encore un doute sur notre expertise ?</h2>
+      <p>Suivez-nous sur Instagram — on vous montre tout. Nos process, nos avant/après, nos coulisses. Sans tricher.</p>
+      <div class="instagram-stats">
+        <div>
+          <div class="stat-big-num">8 000+</div>
+          <p class="stat-big-label">vues locales par post</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div>
+          <div class="stat-big-num">200+</div>
+          <p class="stat-big-label">clients qui nous recommandent</p>
+        </div>
+      </div>
+      <a href="#" class="btn btn-instagram">
+        <i class="ti ti-brand-instagram"></i>
+        Nous suivre sur Instagram
+      </a>
+    </div>
+    <div class="instagram-posts">
+      <div class="ig-post ig-post-1"><i class="ti ti-video"></i><div class="ig-post-meta">▶ 12k vues</div></div>
+      <div class="ig-post ig-post-2"><i class="ti ti-photo"></i><div class="ig-post-meta">♡ 483</div></div>
+      <div class="ig-post ig-post-3"><i class="ti ti-photo"></i><div class="ig-post-meta">♡ 267</div></div>
+      <div class="ig-post ig-post-4"><i class="ti ti-video"></i><div class="ig-post-meta">▶ 8,2k vues</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ TÉMOIGNAGES ================================ -->
+<section class="testimonials" id="temoignages">
+  <div class="container">
+    <div class="testimonials-header">
+      <p class="eyebrow">Ils l'ont testée</p>
+      <h2 class="section-title">Vos avis nous font plaisir.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« 80€ tout compris, franchement j'y croyais moyen. Ben en fait ils font vraiment tout. Voiture nickel dedans dehors. Rien à redire. »</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">V</div>
+          <div>
+            <div class="testimonial-name">Vincent M.</div>
+            <div class="testimonial-source">Autun · Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« Deux enfants dans la voiture = catastrophe. Après leur passage, on aurait dit une voiture de sortie de concession. Un vrai bonheur. »</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sophie L.</div>
+            <div class="testimonial-source">Mâcon · Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« Première voiture, j'avais peur de la confier. Accueil au top, résultat au top, prix clair. C'est simple, je reviendrai. »</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">K</div>
+          <div>
+            <div class="testimonial-name">Karim B.</div>
+            <div class="testimonial-source">Autun · Google Reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-cta">
+      <a href="#" class="text-link">Voir tous les avis Google <i class="ti ti-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ NOUS TROUVER ================================ -->
+<section class="nous-trouver" id="nous-trouver">
+  <div class="container">
+    <div class="nous-trouver-grid">
+      <div class="map-visual">
+        <div class="map-road-1"></div>
+        <div class="map-road-2"></div>
+        <div class="map-road-3"></div>
+        <div class="map-green-1"></div>
+        <div class="map-green-2"></div>
+        <div class="map-pin">
+          <div class="map-pin-marker"><i class="ti ti-car"></i></div>
+        </div>
+        <div class="map-pin-label">CleanAuto Lab</div>
+        <div class="map-demo-note">Google Maps intégré ici</div>
+      </div>
+      <div class="trouver-content">
+        <p class="eyebrow">Nous trouver</p>
+        <h3>Notre centre CleanAuto Lab.</h3>
+        <div class="address-block">
+          <p class="address-street">6 route de Sermoise</p>
+          <p class="address-sub">Facilement accessible · Parking sur place</p>
+        </div>
+        <div class="contact-line">
+          <i class="ti ti-clock"></i>
+          <p><strong>Lundi — Samedi</strong> · 8h30 — 18h30</p>
+        </div>
+        <div class="contact-line">
+          <i class="ti ti-phone"></i>
+          <p><strong>[à compléter]</strong> · Réponse dans l'heure</p>
+        </div>
+        <div class="trouver-actions">
+          <a href="#" class="btn btn-primary">
+            <i class="ti ti-navigation"></i>
+            Itinéraire
+          </a>
+          <a href="tel:" class="btn btn-outline">
+            <i class="ti ti-phone"></i>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ CALENDRIER ================================ -->
+<section class="calendrier" id="calendrier">
+  <div class="container">
+    <div class="calendrier-header">
+      <p class="eyebrow">Réservez en direct</p>
+      <h2 class="section-title">Les créneaux disponibles.</h2>
+      <p>Mis à jour en temps réel. Choisissez le vôtre, on vous confirme sous 24h.</p>
+    </div>
+    <div class="calendrier-card">
+      <div class="cal-month-nav">
+        <div class="cal-month-title">
+          <i class="ti ti-chevron-left"></i>
+          <h4>Juillet 2026</h4>
+          <i class="ti ti-chevron-right"></i>
+        </div>
+        <div class="cal-realtime">
+          <div class="cal-realtime-dot"></div>
+          <span>Temps réel</span>
+        </div>
+      </div>
+      <div class="cal-days">
+        <div class="cal-day full">
+          <p class="cal-day-name">Lun</p>
+          <p class="cal-day-num">30</p>
+          <p class="cal-day-status">Complet</p>
+        </div>
+        <div class="cal-day" data-day="1">
+          <p class="cal-day-name">Mar</p>
+          <p class="cal-day-num">1</p>
+          <p class="cal-day-status available">2 places</p>
+        </div>
+        <div class="cal-day selected" data-day="2">
+          <p class="cal-day-name">Mer</p>
+          <p class="cal-day-num">2</p>
+          <p class="cal-day-status">4 places</p>
+        </div>
+        <div class="cal-day" data-day="3">
+          <p class="cal-day-name">Jeu</p>
+          <p class="cal-day-num">3</p>
+          <p class="cal-day-status available">3 places</p>
+        </div>
+        <div class="cal-day" data-day="4">
+          <p class="cal-day-name">Ven</p>
+          <p class="cal-day-num">4</p>
+          <p class="cal-day-status available">5 places</p>
+        </div>
+        <div class="cal-day" data-day="5">
+          <p class="cal-day-name">Sam</p>
+          <p class="cal-day-num">5</p>
+          <p class="cal-day-status limited">1 place ⚡</p>
+        </div>
+        <div class="cal-day full">
+          <p class="cal-day-name">Dim</p>
+          <p class="cal-day-num">6</p>
+          <p class="cal-day-status">Fermé</p>
+        </div>
+      </div>
+      <div class="cal-slots-box">
+        <div class="cal-slots-head">
+          <p class="cal-slots-title">Créneaux du mercredi 2 juillet</p>
+          <p class="cal-slots-info">4 places restantes</p>
+        </div>
+        <div class="cal-slots-grid">
+          <div class="cal-slot taken">08h30</div>
+          <div class="cal-slot">10h00</div>
+          <div class="cal-slot selected">11h30</div>
+          <div class="cal-slot taken">13h00</div>
+          <div class="cal-slot">14h30</div>
+          <div class="cal-slot">16h00</div>
+        </div>
+        <div class="cal-info-note">
+          <i class="ti ti-info-circle"></i>
+          <p><strong>Durée : 3h30</strong> — nettoyage réalisé dans notre atelier au <strong>6 route de Sermoise</strong>. Un café vous est offert pendant l'attente.</p>
+        </div>
+      </div>
+      <div class="cal-submit">
+        <a href="#" class="btn btn-primary">Je réserve mon créneau — 80€</a>
+        <p class="cal-submit-note">Aucun paiement demandé maintenant. Confirmation par téléphone sous 24h.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ FOOTER ================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="logo-icon"><i class="ti ti-car"></i></div>
+          <div class="logo-text">
+            <span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span>
+          </div>
+        </div>
+        <p class="footer-baseline">Une formule. 80€. Tout inclus. Le nettoyage auto sans prise de tête.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="ti ti-brand-tiktok"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <div class="footer-address">
+          <i class="ti ti-map-pin"></i>
+          <div>
+            <p class="footer-address-street">6 route de Sermoise</p>
+            <a href="#" class="footer-address-link">Itinéraire Google Maps →</a>
+          </div>
+        </div>
+        <div class="footer-schedule">
+          <i class="ti ti-clock"></i>
+          <p>Lun–Sam · 8h30–18h30</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Le centre</h4>
+        <a href="#formule">La formule</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#temoignages">Avis clients</a>
+        <a href="#calendrier">Réserver</a>
+      </div>
+      <div class="footer-col">
+        <h4>Aide</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Avis Google</a>
+        <a href="#">Contact</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 CleanAuto Lab — Produits CleanCar Lab — Made in France
+    </div>
+  </div>
+</footer>
+
+<!-- ================================ CHATBOT ================================ -->
+<div class="chatbot" onclick="alert('💬 Bonjour ! Un conseiller CleanAuto Lab va vous répondre.\n\n(Démo — sur le vrai site, ceci ouvrira Crisp, Tawk.to ou l'outil de chat choisi.)');">
+  <i class="ti ti-message-circle chatbot-icon"></i>
+  Une question ? On vous répond ✦
+</div>
+
+<!-- ================================ SCRIPTS ================================ -->
+<script>
+// Header ombre au scroll
+window.addEventListener('scroll', () => {
+  const h = document.querySelector('.header');
+  h.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Animation fade-in au scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(s => {
+  s.classList.add('fade-in');
+  observer.observe(s);
+});
+
+// Sélection jour dans le calendrier
+document.querySelectorAll('.cal-day:not(.full)').forEach(day => {
+  day.addEventListener('click', () => {
+    document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('selected'));
+    day.classList.add('selected');
+  });
+});
+
+// Sélection créneau
+document.querySelectorAll('.cal-slot:not(.taken)').forEach(slot => {
+  slot.addEventListener('click', () => {
+    document.querySelectorAll('.cal-slot').forEach(s => s.classList.remove('selected'));
+    slot.classList.add('selected');
+  });
+});
+</script>
+
+</body>
+</html>
