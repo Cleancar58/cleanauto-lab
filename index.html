@@ -1117,83 +1117,25 @@ button { cursor: pointer; font-family: inherit; border: none; }
     <div class="calendrier-header">
       <p class="eyebrow">Réservez en direct</p>
       <h2 class="section-title">Les créneaux disponibles.</h2>
-      <p>Mis à jour en temps réel. Choisissez le vôtre, on vous confirme sous 24h.</p>
+      <p>Choisissez votre créneau, la confirmation est automatique.</p>
     </div>
-    <div class="calendrier-card">
-      <div class="cal-month-nav">
-        <div class="cal-month-title">
-          <i class="ti ti-chevron-left"></i>
-          <h4>Juillet 2026</h4>
-          <i class="ti ti-chevron-right"></i>
-        </div>
-        <div class="cal-realtime">
-          <div class="cal-realtime-dot"></div>
-          <span>Temps réel</span>
-        </div>
-      </div>
-      <div class="cal-days">
-        <div class="cal-day full">
-          <p class="cal-day-name">Lun</p>
-          <p class="cal-day-num">30</p>
-          <p class="cal-day-status">Complet</p>
-        </div>
-        <div class="cal-day" data-day="1">
-          <p class="cal-day-name">Mar</p>
-          <p class="cal-day-num">1</p>
-          <p class="cal-day-status available">2 places</p>
-        </div>
-        <div class="cal-day selected" data-day="2">
-          <p class="cal-day-name">Mer</p>
-          <p class="cal-day-num">2</p>
-          <p class="cal-day-status">4 places</p>
-        </div>
-        <div class="cal-day" data-day="3">
-          <p class="cal-day-name">Jeu</p>
-          <p class="cal-day-num">3</p>
-          <p class="cal-day-status available">3 places</p>
-        </div>
-        <div class="cal-day" data-day="4">
-          <p class="cal-day-name">Ven</p>
-          <p class="cal-day-num">4</p>
-          <p class="cal-day-status available">5 places</p>
-        </div>
-        <div class="cal-day" data-day="5">
-          <p class="cal-day-name">Sam</p>
-          <p class="cal-day-num">5</p>
-          <p class="cal-day-status limited">1 place ⚡</p>
-        </div>
-        <div class="cal-day full">
-          <p class="cal-day-name">Dim</p>
-          <p class="cal-day-num">6</p>
-          <p class="cal-day-status">Fermé</p>
-        </div>
-      </div>
-      <div class="cal-slots-box">
-        <div class="cal-slots-head">
-          <p class="cal-slots-title">Créneaux du mercredi 2 juillet</p>
-          <p class="cal-slots-info">4 places restantes</p>
-        </div>
-        <div class="cal-slots-grid">
-          <div class="cal-slot taken">08h30</div>
-          <div class="cal-slot">10h00</div>
-          <div class="cal-slot selected">11h30</div>
-          <div class="cal-slot taken">13h00</div>
-          <div class="cal-slot">14h30</div>
-          <div class="cal-slot">16h00</div>
-        </div>
-        <div class="cal-info-note">
-          <i class="ti ti-info-circle"></i>
-          <p><strong>Durée : 3h30</strong> — nettoyage réalisé dans notre atelier au <strong>6 route de Sermoise</strong>. Un café vous est offert pendant l'attente.</p>
-        </div>
-      </div>
-      <div class="cal-submit">
-        <a href="#" class="btn btn-primary">Je réserve mon créneau — 80€</a>
-        <p class="cal-submit-note">Aucun paiement demandé maintenant. Confirmation par téléphone sous 24h.</p>
-      </div>
-    </div>
+    
+    <!-- Cal.com inline embed -->
+    <div style="width:100%;min-height:700px;overflow:hidden;border-radius:20px;background:#fff;box-shadow:0 20px 60px rgba(47,165,171,0.15);" id="my-cal-inline-nettoyage-vehicule"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "nettoyage-vehicule", {origin:"https://app.cal.com"});
+      Cal.ns["nettoyage-vehicule"]("inline", {
+        elementOrSelector:"#my-cal-inline-nettoyage-vehicule",
+        config: {"layout":"month_view"},
+        calLink: "cleanauto-lab-a90iqo/nettoyage-vehicule",
+      });
+      Cal.ns["nettoyage-vehicule"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2FA5AB"},"dark":{"cal-brand":"#7DD3D8"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    
   </div>
 </section>
-
+   
 <!-- ================================ FOOTER ================================ -->
 <footer class="footer">
   <div class="container">
