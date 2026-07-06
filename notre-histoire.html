@@ -454,5 +454,114 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
+<style>
+/* ANIMATIONS */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInScale { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes pulse { 0%, 100% { transform: translateX(-50%) scale(1); box-shadow: 0 10px 30px rgba(47,165,171,0.3); } 50% { transform: translateX(-50%) scale(1.05); box-shadow: 0 15px 40px rgba(47,165,171,0.5); } }
+@keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(125,211,216,0.4); } 50% { box-shadow: 0 0 0 12px rgba(125,211,216,0); } }
+
+/* Reveal au scroll */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Hero animations chargement */
+.hero .chapter-tag { animation: fadeInUp 0.7s 0.1s both; }
+.hero h1 { animation: fadeInUp 0.7s 0.2s both; }
+.hero-sub { animation: fadeInUp 0.7s 0.35s both; }
+.hero-chips { animation: fadeInUp 0.7s 0.5s both; }
+.hero .cta { animation: fadeInUp 0.7s 0.65s both; }
+.hero-photo-wrap { animation: fadeInScale 1s 0.3s both; }
+.founder-card { animation: fadeInUp 0.7s 0.9s both; }
+
+/* Bulles flottantes */
+.msg-bubble-1 { animation: float 4s ease-in-out infinite; }
+.msg-bubble-2 { animation: float 4s ease-in-out infinite 2s; }
+
+/* Photo hero flotte lentement */
+.hero-photo { animation: float 6s ease-in-out infinite; }
+
+/* Chrono tag pulse continu */
+.formule-chrono-tag { animation: pulse 2.5s ease-in-out infinite; }
+
+/* CTA final gradient animé */
+.cta-final { background-size: 200% 200%; animation: gradient-shift 10s ease infinite; }
+
+/* Icône quote glow */
+.quote-block-icon { animation: glow 2s ease-in-out infinite; }
+
+/* HOVER EFFECTS */
+.stat-card { transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease; cursor: pointer; }
+.stat-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(47,165,171,0.18); }
+
+.chip { transition: all 0.3s ease; }
+.chip:hover { background: rgba(125,211,216,0.2); transform: translateY(-2px); }
+
+.mosaic-item { transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); cursor: pointer; }
+.mosaic-item:hover { transform: scale(1.03); }
+.mosaic-item i { transition: transform 0.5s ease, color 0.3s ease; }
+.mosaic-item:hover i { transform: scale(1.2); color: rgba(125,211,216,0.7); }
+
+.founder-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.founder-card:hover { transform: translateY(-4px); box-shadow: 0 40px 70px rgba(0,0,0,0.4); }
+
+.quote-block { transition: transform 0.4s ease; }
+.quote-block:hover { transform: translateY(-4px); }
+
+.address-card { transition: transform 0.4s ease, border-color 0.4s ease; }
+.address-card:hover { transform: translateY(-4px); border-color: rgba(125,211,216,0.4); }
+
+.formule-menu { transition: transform 0.4s ease; }
+.formule-menu:hover { transform: translateY(-4px); }
+
+.formule-item { transition: transform 0.3s ease; }
+.formule-item:hover { transform: translateX(6px); }
+
+.cta { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.cta:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(47,165,171,0.4); }
+.cta i { transition: transform 0.3s ease; }
+.cta:hover i { transform: translateX(4px); }
+.cta-dark { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.cta-dark:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.35); }
+.cta-dark i { transition: transform 0.3s ease; }
+.cta-dark:hover i { transform: translateX(4px); }
+
+.btn-header { transition: all 0.2s ease; }
+.btn-header:hover { background: var(--turquoise-dark); transform: translateY(-1px); }
+
+.footer-social a { transition: all 0.3s ease; }
+.footer-social a:hover { background: var(--turquoise); transform: translateY(-3px); }
+.footer-social a:hover i { color: #fff; }
+
+.nav a { transition: color 0.2s ease; }
+.nav a:hover { color: var(--turquoise); }
+
+.footer-col a { transition: color 0.2s ease; }
+.footer-col a:hover { color: var(--turquoise-light); }
+</style>
+
+<script>
+// Reveal au scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+window.addEventListener('DOMContentLoaded', () => {
+  const selectors = ['.stats', '.chap01-visual', '.chap01-content', '.chap02 h2', '.formule-menu', '.chap03-header', '.photo-mosaic', '.cta-final'];
+  selectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+  });
+});
+</script>
 </body>
 </html>
