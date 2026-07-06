@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre histoire — CleanAuto Lab · Le centre né de vos demandes</title>
+<meta name="description" content="L'histoire de CleanAuto Lab. Un centre de nettoyage automobile créé cette année en réponse aux demandes de nos clients CleanCar Lab. 6 route de Sermoise.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: #0F1419; line-height: 1.6; background: #0F1419; overflow-x: hidden; }
+h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', sans-serif; line-height: 1.02; font-weight: 800; letter-spacing: -0.025em; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+:root { --turquoise-light: #7DD3D8; --turquoise: #2FA5AB; --turquoise-dark: #24888D; --black: #0F1419; --black-soft: #1A1D24; --gray-body: #4A5058; --gray-muted: #6B7280; --border: #E0EEF0; --bg-light: #F5FBFC; --bg-beige: #F5F4F0; }
+
+.header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+.header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--turquoise-light), var(--turquoise)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(47,165,171,0.3); }
+.logo-icon i { color: #fff; font-size: 20px; }
+.logo-text { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 20px; line-height: 1; }
+.logo-text .clean { color: var(--turquoise); }
+.logo-text .auto { color: var(--black); }
+.logo-text .lab { color: var(--turquoise); font-size: 11px; margin-left: 4px; letter-spacing: 1px; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { padding: 10px 18px; font-weight: 600; font-size: 14px; }
+.nav a.active { color: var(--turquoise); border-bottom: 2px solid var(--turquoise); padding-bottom: 8px; font-weight: 700; }
+.btn-header { background: var(--turquoise); color: #fff; padding: 10px 22px; border-radius: 40px; font-weight: 700; font-size: 13px; }
+
+.cta { background: var(--turquoise); color: #fff; padding: 16px 32px; border-radius: 40px; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s; }
+.cta:hover { background: var(--turquoise-dark); transform: translateY(-2px); }
+.cta-dark { background: var(--black); color: #fff; padding: 18px 40px; border-radius: 40px; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+.chapter-tag { color: var(--turquoise-light); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; }
+.chapter-tag::before { content: ''; display: block; width: 30px; height: 2px; background: var(--turquoise-light); }
+.chapter-tag-dark { color: var(--turquoise); }
+.chapter-tag-dark::before { background: var(--turquoise); }
+
+.hero { background: var(--black); padding: 160px 0 100px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(125,211,216,0.08) 0%, transparent 60%); }
+.hero::after { content: ''; position: absolute; bottom: -50px; left: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(47,165,171,0.06) 0%, transparent 60%); }
+.hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center; position: relative; }
+.hero h1 { color: #fff; font-size: clamp(42px, 5vw, 72px); margin: 32px 0; }
+.hero h1 .highlight { color: var(--turquoise-light); }
+.hero-sub { color: #C4C8CD; font-size: 17px; margin-bottom: 36px; max-width: 470px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.chip { background: rgba(125,211,216,0.1); border: 1px solid rgba(125,211,216,0.25); padding: 10px 18px; border-radius: 40px; color: #fff; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+.chip i { color: var(--turquoise-light); font-size: 15px; }
+
+.hero-photo-wrap { position: relative; }
+.hero-photo { aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #2a2a2a, #4a4a4a); position: relative; border: 1px solid rgba(125,211,216,0.15); }
+.hero-photo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(125,211,216,0.2) 0%, transparent 60%); }
+.hero-photo-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.hero-photo-icon i { font-size: 100px; color: rgba(125,211,216,0.4); }
+.founder-card { position: absolute; bottom: -40px; left: -30px; right: -30px; background: #fff; padding: 22px 26px; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: space-between; }
+.founder-badge { display: inline-flex; background: var(--black); color: var(--turquoise-light); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; }
+.founder-name { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 20px; }
+.founder-role { color: var(--gray-muted); font-size: 11.5px; margin-top: 2px; }
+.founder-quote-icon { width: 48px; height: 48px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.founder-quote-icon i { font-size: 24px; color: var(--turquoise); }
+
+.stats { background: var(--bg-beige); padding: 60px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.stat-card { background: #fff; padding: 32px 26px; border-radius: 16px; position: relative; }
+.stat-card.dark { background: var(--black); }
+.stat-dot { position: absolute; top: 18px; right: 18px; width: 8px; height: 8px; background: var(--turquoise); border-radius: 50%; }
+.stat-card.dark .stat-dot { background: var(--turquoise-light); }
+.stat-num { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 54px; color: var(--black); line-height: 0.95; }
+.stat-card.dark .stat-num { color: #fff; }
+.stat-num-unit { color: var(--turquoise); font-size: 36px; }
+.stat-card.dark .stat-num-unit { color: var(--turquoise-light); }
+.stat-line { width: 30px; height: 2px; background: var(--turquoise); margin: 16px 0; }
+.stat-card.dark .stat-line { background: var(--turquoise-light); }
+.stat-label { color: var(--gray-body); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.stat-card.dark .stat-label { color: #C4C8CD; }
+
+.chapter { padding: 100px 0; }
+.chapter-dark { background: var(--black); }
+.chapter-light { background: var(--bg-beige); }
+
+.chap01-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; align-items: start; margin-top: 40px; }
+.chap01-visual { position: relative; }
+.chap01-photo { aspect-ratio: 4/5; border-radius: 12px; background: linear-gradient(135deg, #1a1d24, #3a4049); position: relative; overflow: hidden; }
+.chap01-photo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 60%, rgba(125,211,216,0.15) 0%, transparent 60%); }
+.chap01-photo-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.chap01-photo-icon i { font-size: 80px; color: rgba(125,211,216,0.4); }
+.chap01-photo-badge { position: absolute; bottom: 20px; left: 20px; display: inline-flex; background: #fff; color: var(--black); padding: 5px 12px; border-radius: 30px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+.msg-bubble { position: absolute; background: #fff; padding: 14px 18px; border-radius: 4px 16px 16px 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); max-width: 260px; }
+.msg-bubble-1 { top: 40px; right: -30px; }
+.msg-bubble-2 { bottom: 100px; right: 20px; background: var(--turquoise-light); }
+.msg-bubble p { color: var(--black); font-size: 13px; line-height: 1.4; }
+.msg-bubble .msg-author { color: var(--gray-muted); font-size: 10px; margin-top: 6px; font-weight: 600; }
+.msg-bubble-2 .msg-author { color: var(--black); opacity: 0.7; }
+
+.chap01-content h2 { color: #fff; font-size: clamp(36px, 4vw, 56px); margin-bottom: 30px; }
+.chap01-content h2 .highlight { color: var(--turquoise-light); }
+.chap01-content p { color: #C4C8CD; font-size: 16px; margin-bottom: 20px; }
+.chap01-content p strong { color: #fff; }
+.chap01-content p em { color: var(--turquoise-light); font-style: italic; }
+
+.quote-block { background: linear-gradient(135deg, rgba(125,211,216,0.1), rgba(125,211,216,0.02)); border: 1px solid rgba(125,211,216,0.2); border-radius: 16px; padding: 32px 30px 26px; position: relative; margin-top: 32px; }
+.quote-block-icon { position: absolute; top: -16px; left: 26px; background: var(--turquoise-light); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.quote-block-icon i { font-size: 16px; color: var(--black); }
+.quote-block p { color: #fff; font-size: 17px; line-height: 1.55; font-family: 'Bricolage Grotesque'; font-weight: 700; margin-top: 6px !important; }
+.quote-block p span { color: var(--turquoise-light); }
+.quote-block .quote-author { color: #9BC8CB; font-size: 13px; margin-top: 14px !important; font-weight: 600; font-family: 'Plus Jakarta Sans' !important; }
+</style>
+<style>
+.chap02 h2 { font-size: clamp(38px, 4vw, 56px); margin: 24px 0 60px; max-width: 700px; }
+.chap02 h2 .highlight { color: var(--turquoise); }
+.formule-menu { background: #fff; border-radius: 24px; padding: 50px; box-shadow: 0 30px 80px rgba(0,0,0,0.06); display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+.formule-price-wrap { position: relative; }
+.formule-price { aspect-ratio: 1; background: linear-gradient(135deg, var(--black), #1a1d24); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.formule-price::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(125,211,216,0.2), transparent 60%); }
+.formule-price-label { color: var(--turquoise-light); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; position: relative; }
+.formule-price-num { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 90px; color: #fff; line-height: 0.9; position: relative; }
+.formule-price-num span { color: var(--turquoise-light); font-size: 50px; }
+.formule-price-caption { color: #C4C8CD; font-size: 12px; margin-top: 12px; position: relative; }
+.formule-chrono-tag { position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); background: var(--turquoise); color: #fff; padding: 10px 22px; border-radius: 40px; font-size: 12px; font-weight: 700; box-shadow: 0 10px 30px rgba(47,165,171,0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.formule-list-title { color: var(--gray-muted); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.formule-items { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 30px; }
+.formule-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.formule-item-check { width: 26px; height: 26px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.formule-item-check i { font-size: 15px; color: var(--turquoise); }
+.formule-item span { font-size: 14px; font-weight: 600; }
+.formule-signature { margin-top: 26px; padding-top: 26px; border-top: 2px solid var(--black); }
+.formule-signature h4 { font-size: 22px; }
+.formule-signature h4 span { color: var(--turquoise); }
+.formule-signature p { color: var(--gray-muted); font-size: 13px; margin-top: 4px; }
+
+.chap03-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 50px; }
+.chap03-title h2 { color: #fff; font-size: clamp(38px, 4vw, 56px); margin: 24px 0; }
+.chap03-title h2 .highlight { color: var(--turquoise-light); }
+.chap03-title p { color: #C4C8CD; font-size: 16px; max-width: 460px; }
+.address-card { background: linear-gradient(135deg, rgba(125,211,216,0.08), rgba(125,211,216,0.02)); border: 1px solid rgba(125,211,216,0.2); border-radius: 20px; padding: 30px; }
+.address-card-label { color: var(--turquoise-light); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.address-line { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.address-icon { width: 46px; height: 46px; background: var(--turquoise-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.address-icon i { font-size: 22px; color: var(--black); }
+.address-street { color: #fff; font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 22px; }
+.address-sub { color: #9BC8CB; font-size: 13px; margin-top: 4px; }
+.address-schedule { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(125,211,216,0.15); }
+.address-schedule-icon { width: 40px; height: 40px; background: rgba(125,211,216,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.address-schedule-icon i { font-size: 20px; color: var(--turquoise-light); }
+.address-schedule-day { color: #fff; font-weight: 700; font-size: 15px; }
+.address-schedule-time { color: #9BC8CB; font-size: 13px; margin-top: 2px; }
+
+.photo-mosaic { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 14px; }
+.mosaic-item { border-radius: 16px; position: relative; overflow: hidden; }
+.mosaic-big { grid-row: 1 / 3; }
+.mosaic-item.bg1 { background: linear-gradient(135deg, #2a2a2a, #4a4a4a); }
+.mosaic-item.bg2 { background: linear-gradient(135deg, #1a1d24, #3a4049); }
+.mosaic-item.bg3 { background: linear-gradient(135deg, #3a3a3a, #5a5a5a); }
+.mosaic-item.bg4 { background: linear-gradient(135deg, #2a2d34, #4a4a4a); }
+.mosaic-item.bg5 { background: linear-gradient(135deg, #1a1d24, #2a2d34); }
+.mosaic-item::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 50%, rgba(125,211,216,0.15), transparent 60%); }
+.mosaic-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.mosaic-icon i { font-size: 60px; color: rgba(125,211,216,0.4); }
+.mosaic-big .mosaic-icon i { font-size: 80px; }
+.mosaic-overlay { position: absolute; bottom: 20px; left: 20px; }
+.mosaic-item.mosaic-small .mosaic-overlay { bottom: 14px; left: 14px; }
+.mosaic-badge { display: inline-flex; background: #fff; color: var(--black); padding: 4px 10px; border-radius: 30px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 6px; }
+.mosaic-big .mosaic-badge { padding: 5px 12px; font-size: 10px; margin-bottom: 8px; }
+.mosaic-title { color: #fff; font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 14px; }
+.mosaic-big .mosaic-title { font-size: 20px; }
+.mosaic-note { color: var(--gray-muted); font-size: 11px; text-align: center; margin-top: 14px; font-style: italic; }
+
+.cta-final-section { background: var(--black); padding: 30px 0 100px; }
+.cta-final { background: linear-gradient(135deg, var(--turquoise-light), var(--turquoise)); border-radius: 24px; padding: 70px 40px; text-align: center; position: relative; overflow: hidden; }
+.cta-final::before { content: ''; position: absolute; top: 30px; left: 50px; width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; }
+.cta-final::after { content: ''; position: absolute; bottom: 40px; right: 60px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+.cta-final-inner { position: relative; max-width: 560px; margin: 0 auto; }
+.cta-final-tag { color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; opacity: 0.9; }
+.cta-final h2 { color: #fff; font-size: clamp(36px, 4vw, 52px); margin-bottom: 20px; }
+.cta-final p { color: #fff; opacity: 0.9; font-size: 16px; margin-bottom: 36px; }
+
+.footer { background: var(--black); padding: 60px 0 24px; border-top: 1px solid var(--black-soft); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+.footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-brand-logo .logo-icon { width: 36px; height: 36px; }
+.footer-brand-logo .logo-icon i { font-size: 18px; }
+.footer-brand-logo .logo-text .clean, .footer-brand-logo .logo-text .lab { color: var(--turquoise-light); }
+.footer-brand-logo .logo-text .auto { color: #fff; }
+.footer-baseline { color: #9A9890; font-size: 13px; line-height: 1.6; max-width: 320px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 10px; }
+.footer-social a { width: 38px; height: 38px; border-radius: 50%; background: var(--black-soft); display: flex; align-items: center; justify-content: center; }
+.footer-social i { color: var(--turquoise-light); font-size: 17px; }
+.footer-col h4 { color: #fff; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 16px; }
+.footer-col a { color: #9A9890; font-size: 13px; display: block; padding: 4px 0; }
+.footer-address { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.footer-address i { color: var(--turquoise-light); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+.footer-address-street { color: #fff; font-weight: 700; font-size: 13px; }
+.footer-address-link { color: var(--turquoise-light); font-size: 11px; text-decoration: underline; }
+.footer-schedule { display: flex; align-items: center; gap: 10px; }
+.footer-schedule i { color: var(--turquoise-light); font-size: 16px; }
+.footer-schedule p { color: #9A9890; font-size: 12.5px; }
+.footer-bottom { border-top: 1px solid var(--black-soft); padding-top: 24px; text-align: center; color: var(--gray-muted); font-size: 12px; }
+
+@media (max-width: 968px) {
+  .nav { display: none; }
+  .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .chap01-grid { grid-template-columns: 1fr; gap: 40px; }
+  .msg-bubble-1, .msg-bubble-2 { display: none; }
+  .formule-menu { grid-template-columns: 1fr; gap: 60px; padding: 30px; }
+  .formule-items { grid-template-columns: 1fr; }
+  .chap03-header { grid-template-columns: 1fr; gap: 30px; }
+  .photo-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
+  .mosaic-big { grid-row: 1 / 2; grid-column: 1 / 3; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="ti ti-car"></i></div>
+      <div class="logo-text"><span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span></div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#formule">La formule</a>
+      <a href="notre-histoire.html" class="active">Notre histoire</a>
+      <a href="index.html#realisations">Réalisations</a>
+      <a href="index.html#temoignages">Avis</a>
+    </nav>
+    <a href="index.html#calendrier" class="btn-header">Réserver — 80€</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="chapter-tag">N°01 · NOTRE HISTOIRE</p>
+        <h1>Une marque.<br>Une demande.<br><span class="highlight">Un centre.</span></h1>
+        <p class="hero-sub">Depuis qu'on a lancé CleanCar Lab, une même question revenait dans nos DM : <em>« venez nettoyer ma voiture avec vos produits. »</em> Alors on l'a fait.</p>
+        <div class="hero-chips">
+          <div class="chip"><i class="ti ti-flask"></i>Produits CleanCar Lab</div>
+          <div class="chip"><i class="ti ti-map-pin"></i>6 route de Sermoise</div>
+          <div class="chip"><i class="ti ti-currency-euro"></i>80€ tout compris</div>
+        </div>
+        <a href="index.html#calendrier" class="cta">RÉSERVER MON CRÉNEAU <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo"><div class="hero-photo-icon"><i class="ti ti-user"></i></div></div>
+        <div class="founder-card">
+          <div>
+            <div class="founder-badge">FONDATEUR · CEO</div>
+            <p class="founder-name">Ton prénom.</p>
+            <p class="founder-role">Passionné avant tout.</p>
+          </div>
+          <div class="founder-quote-icon"><i class="ti ti-quote"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-dot"></div><p class="stat-num">80<span class="stat-num-unit">€</span></p><div class="stat-line"></div><p class="stat-label">Une formule<br>tout inclus</p></div>
+      <div class="stat-card"><div class="stat-dot"></div><p class="stat-num">3h30</p><div class="stat-line"></div><p class="stat-label">Chrono<br>dans notre atelier</p></div>
+      <div class="stat-card"><div class="stat-dot"></div><p class="stat-num">4,9<span style="color:#F5A623;font-size:36px;">★</span></p><div class="stat-line"></div><p class="stat-label">Avis Google<br>certifiés</p></div>
+      <div class="stat-card dark"><div class="stat-dot"></div><p class="stat-num">100<span class="stat-num-unit">%</span></p><div class="stat-line"></div><p class="stat-label">Made in France<br>Testé par experts</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter-dark">
+  <div class="container">
+    <p class="chapter-tag">CHAPITRE 01 · LE POURQUOI</p>
+    <div class="chap01-grid">
+      <div class="chap01-visual">
+        <div class="chap01-photo">
+          <div class="chap01-photo-icon"><i class="ti ti-messages"></i></div>
+          <div class="chap01-photo-badge">LA DEMANDE</div>
+        </div>
+        <div class="msg-bubble msg-bubble-1">
+          <p>« Vous pouvez pas venir avec vos produits ? »</p>
+          <p class="msg-author">Julien · Instagram</p>
+        </div>
+        <div class="msg-bubble msg-bubble-2">
+          <p>« Ouvrez un centre SVP »</p>
+          <p class="msg-author">Amine · TikTok</p>
+        </div>
+      </div>
+      <div class="chap01-content">
+        <h2>Un constat.<br><span class="highlight">Une évidence.</span></h2>
+        <p>Ça faisait des mois qu'on lançait les produits <strong>CleanCar Lab</strong>. Formulés en France, testés par des experts, utilisés par des pros du detailing.</p>
+        <p>Puis les messages ont commencé à tomber. Un par jour. Puis dix. Puis trente. Toujours la même chose.</p>
+        <p>Nos clients savaient ce que valaient nos produits. Ce qu'ils voulaient maintenant, c'est que ce soit <strong>nous</strong> qui les appliquent. Qu'on maîtrise toute la chaîne : du laboratoire au polish final.</p>
+        <div class="quote-block">
+          <div class="quote-block-icon"><i class="ti ti-quote"></i></div>
+          <p>On n'avait pas besoin d'un centre de plus. On avait besoin d'un centre qui applique <span>ses propres produits.</span></p>
+          <p class="quote-author">— L'équipe CleanAuto Lab</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter-light chap02">
+  <div class="container">
+    <p class="chapter-tag chapter-tag-dark">CHAPITRE 02 · LA FORMULE</p>
+    <h2>Une formule.<br><span class="highlight">Zéro complication.</span></h2>
+    <div class="formule-menu">
+      <div class="formule-price-wrap">
+        <div class="formule-price">
+          <p class="formule-price-label">Prix unique</p>
+          <p class="formule-price-num">80<span>€</span></p>
+          <p class="formule-price-caption">Tout compris</p>
+        </div>
+        <div class="formule-chrono-tag"><i class="ti ti-clock"></i>3H30 EN ATELIER</div>
+      </div>
+      <div>
+        <p class="formule-list-title">Ce qui est inclus</p>
+        <div class="formule-items">
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Aspiration complète</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Nettoyage carrosserie</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Cuirs traités</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Film brillant déperlant</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Plastiques protégés UV</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Vitres déperlantes</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Jantes complètes</span></div>
+          <div class="formule-item"><div class="formule-item-check"><i class="ti ti-check"></i></div><span>Tapis nettoyés</span></div>
+        </div>
+        <div class="formule-signature">
+          <h4>Nos produits. Jamais d'autres<span>.</span></h4>
+          <p>Uniquement CleanCar Lab, formulés dans nos laboratoires partenaires français.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter-dark">
+  <div class="container">
+    <div class="chap03-header">
+      <div class="chap03-title">
+        <p class="chapter-tag">CHAPITRE 03 · LE CENTRE</p>
+        <h2>Un vrai atelier.<br><span class="highlight">Une vraie équipe.</span></h2>
+        <p>Trois voitures par jour, maximum. On prend le temps qu'il faut pour bien faire. Rien de plus, rien de moins.</p>
+      </div>
+      <div class="address-card">
+        <p class="address-card-label">Nous trouver</p>
+        <div class="address-line">
+          <div class="address-icon"><i class="ti ti-map-pin"></i></div>
+          <div>
+            <p class="address-street">6 route de Sermoise</p>
+            <p class="address-sub">Facilement accessible · Parking sur place</p>
+          </div>
+        </div>
+        <div class="address-schedule">
+          <div class="address-schedule-icon"><i class="ti ti-clock"></i></div>
+          <div>
+            <p class="address-schedule-day">Lundi — Samedi</p>
+            <p class="address-schedule-time">8h30 → 18h30</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="photo-mosaic">
+      <div class="mosaic-item mosaic-big bg1"><div class="mosaic-icon"><i class="ti ti-building-warehouse"></i></div><div class="mosaic-overlay"><div class="mosaic-badge">01 · L'ATELIER</div><p class="mosaic-title">Vue d'ensemble</p></div></div>
+      <div class="mosaic-item mosaic-small bg2"><div class="mosaic-icon"><i class="ti ti-car"></i></div><div class="mosaic-overlay"><div class="mosaic-badge">02</div><p class="mosaic-title">Zone lavage</p></div></div>
+      <div class="mosaic-item mosaic-small bg3"><div class="mosaic-icon"><i class="ti ti-armchair"></i></div><div class="mosaic-overlay"><div class="mosaic-badge">03</div><p class="mosaic-title">Salon d'attente</p></div></div>
+      <div class="mosaic-item mosaic-small bg4"><div class="mosaic-icon"><i class="ti ti-flask"></i></div><div class="mosaic-overlay"><div class="mosaic-badge">04</div><p class="mosaic-title">Zone produits</p></div></div>
+      <div class="mosaic-item mosaic-small bg5"><div class="mosaic-icon"><i class="ti ti-droplet"></i></div><div class="mosaic-overlay"><div class="mosaic-badge">05</div><p class="mosaic-title">Finitions</p></div></div>
+    </div>
+    <p class="mosaic-note">(vos vraies photos du centre remplaceront celles-ci)</p>
+  </div>
+</section>
+
+<section class="cta-final-section">
+  <div class="container">
+    <div class="cta-final">
+      <div class="cta-final-inner">
+        <p class="cta-final-tag">À VOTRE TOUR</p>
+        <h2>Envie de confier votre voiture aux gens qui fabriquent les produits ?</h2>
+        <p>Une formule. 80€. 3h30 dans notre atelier.</p>
+        <a href="index.html#calendrier" class="cta-dark">RÉSERVER MON CRÉNEAU <i class="ti ti-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="logo-icon"><i class="ti ti-car"></i></div>
+          <div class="logo-text"><span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span></div>
+        </div>
+        <p class="footer-baseline">Une formule. 80€. Tout inclus. Le nettoyage auto sans prise de tête.</p>
+        <div class="footer-social">
+          <a href="#"><i class="ti ti-brand-instagram"></i></a>
+          <a href="#"><i class="ti ti-brand-tiktok"></i></a>
+          <a href="#"><i class="ti ti-brand-facebook"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <div class="footer-address">
+          <i class="ti ti-map-pin"></i>
+          <div>
+            <p class="footer-address-street">6 route de Sermoise</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=6+route+de+Sermoise" target="_blank" class="footer-address-link">Itinéraire Google Maps →</a>
+          </div>
+        </div>
+        <div class="footer-schedule">
+          <i class="ti ti-clock"></i>
+          <p>Lun–Sam · 8h30–18h30</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Le centre</h4>
+        <a href="index.html#formule">La formule</a>
+        <a href="notre-histoire.html">Notre histoire</a>
+        <a href="index.html#realisations">Réalisations</a>
+        <a href="index.html#calendrier">Réserver</a>
+      </div>
+      <div class="footer-col">
+        <h4>Aide</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 CleanAuto Lab — Produits CleanCar Lab — Made in France</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 30);
+});
+</script>
+
+</body>
+</html>
