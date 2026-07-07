@@ -670,25 +670,7 @@ button { cursor: pointer; font-family: inherit; border: none; }
 <body>
 
 <!-- ================================ HEADER ================================ -->
-<header class="header">
-  <div class="container header-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon"><i class="ti ti-car"></i></div>
-      <div class="logo-text">
-        <span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span>
-      </div>
-    </a>
-    <nav class="nav">
-      <a href="#formule">La formule</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="notre-histoire.html">Notre histoire</a>
-       <a href="#temoignages">Avis</a>
-    </nav>
-    <div class="header-actions">
-      <a href="#calendrier" class="btn btn-primary" style="padding: 10px 22px; font-size: 13px;">Réserver — 80€</a>
-    </div>
-  </div>
-</header>
+<div id="site-header"></div>
 
 <!-- ================================ HERO ================================ -->
 <section class="hero">
@@ -1139,57 +1121,7 @@ button { cursor: pointer; font-family: inherit; border: none; }
 </section>
    
 <!-- ================================ FOOTER ================================ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-logo">
-          <div class="logo-icon"><i class="ti ti-car"></i></div>
-          <div class="logo-text">
-            <span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span>
-          </div>
-        </div>
-        <p class="footer-baseline">Une formule. 80€. Tout inclus. Le nettoyage auto sans prise de tête.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-          <a href="#" aria-label="TikTok"><i class="ti ti-brand-tiktok"></i></a>
-          <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Nous trouver</h4>
-        <div class="footer-address">
-          <i class="ti ti-map-pin"></i>
-          <div>
-            <p class="footer-address-street">6 route de Sermoise</p>
-            <a href="#" class="footer-address-link">Itinéraire Google Maps →</a>
-          </div>
-        </div>
-        <div class="footer-schedule">
-          <i class="ti ti-clock"></i>
-          <p>Lun–Sam · 8h30–18h30</p>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Le centre</h4>
-        <a href="#formule">La formule</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#temoignages">Avis clients</a>
-        <a href="#calendrier">Réserver</a>
-      </div>
-      <div class="footer-col">
-        <h4>Aide</h4>
-        <a href="#">FAQ</a>
-        <a href="#">Avis Google</a>
-        <a href="#">Contact</a>
-        <a href="#">Mentions légales</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 CleanAuto Lab — Produits CleanCar Lab — Made in France
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
 <!-- ================================ CHATBOT ================================ -->
 <div class="chatbot" onclick="alert('💬 Bonjour ! Un conseiller CleanAuto Lab va vous répondre.\n\n(Démo — sur le vrai site, ceci ouvrira Crisp, Tawk.to ou l'outil de chat choisi.)');">
@@ -1232,6 +1164,6 @@ document.querySelectorAll('.cal-slot:not(.taken)').forEach(slot => {
   });
 });
 </script>
-
+<script src="composants.js"></script>
 </body>
 </html>
