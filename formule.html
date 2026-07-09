@@ -449,5 +449,69 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
+  <style>
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInScale{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.hero .eyebrow{animation:fadeInUp .7s .1s both}
+.hero h1{animation:fadeInUp .7s .2s both}
+.hero-sub{animation:fadeInUp .7s .35s both}
+.price-bar{animation:fadeInScale .8s .5s both}
+.hero .cta{animation:fadeInUp .7s .7s both}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.step-photo{transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.step-photo:hover{transform:scale(1.03)}
+.step-photo i{transition:transform .5s ease,color .3s ease}
+.step-photo:hover i{transform:scale(1.2);color:rgba(125,211,216,.7)}
+
+.apercu-card{transition:transform .4s ease,box-shadow .4s ease}
+.apercu-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(47,165,171,.15)}
+
+.avantage-card{transition:transform .4s ease,box-shadow .4s ease}
+.avantage-card:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(47,165,171,.12)}
+.avantage-icon{transition:transform .3s ease}
+.avantage-card:hover .avantage-icon{transform:scale(1.1)}
+
+.step-num{transition:transform .3s ease}
+.step:hover .step-num{transform:translateX(6px)}
+
+.cta{transition:all .3s cubic-bezier(.4,0,.2,1)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(47,165,171,.4)}
+.cta i{transition:transform .3s ease}
+.cta:hover i{transform:translateX(4px)}
+.cta-dark{transition:all .3s cubic-bezier(.4,0,.2,1)}
+.cta-dark:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
+.cta-dark i{transition:transform .3s ease}
+.cta-dark:hover i{transform:translateX(4px)}
+
+.btn-header{transition:all .2s ease}
+.btn-header:hover{background:var(--turquoise-dark);transform:translateY(-1px)}
+.nav a{transition:color .2s ease}
+.nav a:hover{color:var(--turquoise)}
+.footer-social a{transition:all .3s ease}
+.footer-social a:hover{background:var(--turquoise);transform:translateY(-3px)}
+.footer-col a{transition:color .2s ease}
+.footer-col a:hover{color:var(--turquoise-light)}
+</style>
+
+<script>
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('.step, .apercu-card, .avantage-card, .section-header, .calendrier-header, .cta-final').forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+</script>
 </body>
 </html>
