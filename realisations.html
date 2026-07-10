@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos réalisations — CleanAuto Lab · Avant/après et avis clients</title>
+<meta name="description" content="Les vraies photos avant/après de nos prestations et les avis de nos clients. Nettoyage complet à 80€, résultats visibles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#0F1419;line-height:1.6;background:#fff;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;font-weight:800;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit;border:none}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+:root{--turquoise-light:#7DD3D8;--turquoise:#2FA5AB;--turquoise-dark:#24888D;--black:#0F1419;--black-soft:#1A1D24;--gray-body:#4A5058;--gray-muted:#6B7280;--border:#E0EEF0;--bg-light:#F5FBFC;--bg-alt:#E4F3F5}
+.header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:100}
+.header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,#7DD3D8,#2FA5AB);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(47,165,171,.3)}
+.logo-icon i{color:#fff;font-size:20px}
+.logo-text{font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;line-height:1}
+.logo-text .clean{color:var(--turquoise)}
+.logo-text .auto{color:var(--black)}
+.logo-text .lab{color:var(--turquoise);font-size:11px;margin-left:4px;letter-spacing:1px}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{padding:10px 18px;font-weight:600;font-size:14px}
+.nav a.active{color:var(--turquoise);border-bottom:2px solid var(--turquoise);padding-bottom:8px;font-weight:700}
+.nav a:hover{color:var(--turquoise)}
+.btn-header{background:var(--turquoise);color:#fff;padding:10px 22px;border-radius:40px;font-weight:700;font-size:13px;transition:all .2s}
+.btn-header:hover{background:var(--turquoise-dark)}
+.eyebrow{color:var(--turquoise);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';display:block;width:30px;height:2px;background:var(--turquoise)}
+.eyebrow-light{color:var(--turquoise-light)}.eyebrow-light::before{background:var(--turquoise-light)}
+.highlight{color:var(--turquoise)}
+.hero{background:linear-gradient(135deg,var(--bg-light),var(--bg-alt));padding:170px 0 90px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:40px;right:70px;width:50px;height:50px;background:var(--turquoise-light);border-radius:50%;opacity:.3}
+.hero::after{content:'';position:absolute;bottom:60px;left:40px;width:24px;height:24px;background:var(--turquoise-light);border-radius:50%;opacity:.4}
+.hero h1{font-size:clamp(40px,5vw,60px);max-width:700px;margin:20px auto 20px}
+.hero-sub{color:var(--gray-body);font-size:17px;max-width:520px;margin:0 auto}
+.section{padding:80px 0}
+.section-dark{background:var(--black)}
+.section-header{text-align:center;margin-bottom:50px}
+.section-header h2{font-size:clamp(34px,4vw,46px);max-width:600px;margin:14px auto 0}
+.section-header p{color:var(--gray-body);font-size:15px;max-width:500px;margin:12px auto 0}
+.section-dark .section-header h2{color:#fff}
+.section-dark .section-header p{color:#C4C8CD}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.photo-card{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:16/10}
+.photo-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(125,211,216,.15),transparent 60%)}
+.photo-card-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.photo-card-icon i{font-size:80px;color:rgba(125,211,216,.4)}
+.photo-card .badge-before{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.6);color:#fff;padding:5px 14px;border-radius:30px;font-size:11px;font-weight:700}
+.photo-card .badge-after{position:absolute;top:14px;left:14px;background:var(--turquoise);color:#fff;padding:5px 14px;border-radius:30px;font-size:11px;font-weight:700}
+.photo-card-info{position:absolute;bottom:16px;left:16px;color:#fff}
+.photo-card-info h4{font-size:16px;margin-bottom:2px}
+.photo-card-info p{font-size:12px;opacity:.8}
+.photo-card.bg1{background:linear-gradient(135deg,#2a2a2a,#4a4a4a)}
+.photo-card.bg2{background:linear-gradient(135deg,#1a3a3a,#2FA5AB)}
+.photo-card.bg3{background:linear-gradient(135deg,#3a3a3a,#5a5a5a)}
+.photo-card.bg4{background:linear-gradient(135deg,#1a1d24,#3a4049)}
+.photo-card.bg5{background:linear-gradient(135deg,#2a2d34,#4a4a4a)}
+.photo-card.bg6{background:linear-gradient(135deg,#1a1d24,#2a2d34)}
+.photo-card{transition:transform .4s ease}
+.photo-card:hover{transform:scale(1.02)}
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.mini-card{aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;transition:transform .4s ease;cursor:pointer}
+.mini-card:hover{transform:scale(1.04)}
+.mini-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(125,211,216,.15),transparent 60%)}
+.mini-card-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mini-card-icon i{font-size:44px;color:rgba(125,211,216,.4)}
+.mini-card-label{position:absolute;bottom:10px;left:10px;color:#fff;font-family:'Bricolage Grotesque';font-weight:800;font-size:12px}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="ti ti-car"></i></div>
+      <div class="logo-text"><span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span></div>
+    </a>
+    <nav class="nav">
+      <a href="formule.html">La formule</a>
+      <a href="notre-histoire.html">Notre histoire</a>
+      <a href="realisations.html" class="active">Réalisations</a>
+      <a href="index.html#temoignages">Avis</a>
+    </nav>
+    <a href="index.html#calendrier" class="btn-header">Réserver — 80€</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Nos réalisations</p>
+    <h1>On montre tout<span class="highlight">.</span> Sans filtre<span class="highlight">.</span></h1>
+    <p class="hero-sub">Les vraies photos, les vrais avis. Chaque voiture qui passe chez nous raconte une histoire.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Galerie</p>
+      <h2>Avant / après<span class="highlight">.</span></h2>
+    </div>
+    <div class="pair">
+      <div class="photo-card bg1">
+        <div class="photo-card-icon"><i class="ti ti-car"></i></div>
+        <div class="badge-before">AVANT</div>
+        <div class="photo-card-info"><h4>Peugeot 3008</h4><p>Intérieur + extérieur</p></div>
+      </div>
+      <div class="photo-card bg2">
+        <div class="photo-card-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="badge-after">APRÈS</div>
+        <div class="photo-card-info"><h4>Peugeot 3008</h4><p>Résultat après 3h30</p></div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="photo-card bg3">
+        <div class="photo-card-icon"><i class="ti ti-armchair"></i></div>
+        <div class="badge-before">AVANT</div>
+        <div class="photo-card-info"><h4>BMW Série 3 · Intérieur cuir</h4><p>Sièges tachés, poussière</p></div>
+      </div>
+      <div class="photo-card bg2">
+        <div class="photo-card-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="badge-after">APRÈS</div>
+        <div class="photo-card-info"><h4>BMW Série 3 · Intérieur cuir</h4><p>Cuir nourri, habitacle impeccable</p></div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="photo-card bg4">
+        <div class="photo-card-icon"><i class="ti ti-car"></i></div>
+        <div class="badge-before">AVANT</div>
+        <div class="photo-card-info"><h4>Renault Clio · 2021</h4><p>Extérieur terne, jantes sales</p></div>
+      </div>
+      <div class="photo-card bg2">
+        <div class="photo-card-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="badge-after">APRÈS</div>
+        <div class="photo-card-info"><h4>Renault Clio · 2021</h4><p>Film brillant, jantes comme neuves</p></div>
+      </div>
+    </div>
+    <div class="mini-grid">
+      <div class="mini-card bg1"><div class="mini-card-icon"><i class="ti ti-droplet"></i></div><p class="mini-card-label">Film brillant</p></div>
+      <div class="mini-card bg3"><div class="mini-card-icon"><i class="ti ti-circle"></i></div><p class="mini-card-label">Jantes détail</p></div>
+      <div class="mini-card bg6"><div class="mini-card-icon"><i class="ti ti-window"></i></div><p class="mini-card-label">Vitres déperlantes</p></div>
+      <div class="mini-card bg5"><div class="mini-card-icon"><i class="ti ti-vacuum-cleaner"></i></div><p class="mini-card-label">Aspiration coffre</p></div>
+    </div>
+    <p style="color:#6B7280;font-size:11px;text-align:center;margin-top:14px;font-style:italic">(vos vraies photos avant/après remplaceront celles-ci)</p>
+  </div>
+</section>
+<style>
+.avis-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.avis-card{background:rgba(255,255,255,.04);border:1px solid rgba(125,211,216,.15);border-radius:20px;overflow:hidden;transition:transform .4s ease}
+.avis-card:hover{transform:translateY(-6px)}
+.avis-card-photo{aspect-ratio:16/9;position:relative;overflow:hidden}
+.avis-card-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(125,211,216,.15),transparent 60%)}
+.avis-card-photo-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.avis-card-photo-icon i{font-size:60px;color:rgba(125,211,216,.4)}
+.avis-card-photo .car-badge{position:absolute;top:12px;left:12px;background:var(--turquoise);color:#fff;padding:4px 12px;border-radius:30px;font-size:10px;font-weight:700}
+.avis-card-body{padding:24px}
+.avis-stars{display:flex;gap:2px;margin-bottom:12px}
+.avis-stars i{color:#F5A623;font-size:18px}
+.avis-text{color:#fff;font-size:15px;line-height:1.6;margin-bottom:16px}
+.avis-author{display:flex;align-items:center;gap:12px}
+.avis-avatar{width:38px;height:38px;border-radius:50%;background:var(--turquoise-light);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:#0F1419}
+.avis-name{color:#fff;font-weight:700;font-size:13px}
+.avis-source{color:#9BC8CB;font-size:11px;margin-top:2px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto}
+.stat-box{text-align:center;padding:30px 16px;border-radius:16px}
+.stat-box.light{background:var(--bg-light)}
+.stat-box.dark{background:var(--black)}
+.stat-box-num{font-family:'Bricolage Grotesque';font-weight:800;font-size:42px;line-height:1}
+.stat-box.light .stat-box-num{color:var(--black)}
+.stat-box.dark .stat-box-num{color:#fff}
+.stat-box-unit{font-size:28px}
+.stat-box-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:8px}
+.stat-box.light .stat-box-label{color:var(--gray-body)}
+.stat-box.dark .stat-box-label{color:#C4C8CD}
+.cta-final{background:linear-gradient(135deg,var(--turquoise-light),var(--turquoise));padding:80px 30px;text-align:center}
+.cta-final h2{color:#fff;font-size:clamp(32px,4vw,44px);margin-bottom:14px}
+.cta-final p{color:#fff;opacity:.95;font-size:15px;margin-bottom:30px}
+.cta-dark{background:var(--black);color:#fff;padding:18px 36px;border-radius:40px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:all .3s}
+.cta-dark:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.cta-dark i{transition:transform .3s}.cta-dark:hover i{transform:translateX(4px)}
+.footer{background:var(--black);padding:60px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-brand-logo .logo-icon{width:36px;height:36px}.footer-brand-logo .logo-icon i{font-size:18px}
+.footer-brand-logo .logo-text .clean,.footer-brand-logo .logo-text .lab{color:var(--turquoise-light)}
+.footer-brand-logo .logo-text .auto{color:#fff}
+.footer-baseline{color:#9A9890;font-size:13px;line-height:1.6;max-width:320px;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:var(--black-soft);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.footer-social a:hover{background:var(--turquoise);transform:translateY(-3px)}
+.footer-social i{color:var(--turquoise-light);font-size:17px}
+.footer-col h4{color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px}
+.footer-col a{color:#9A9890;font-size:13px;display:block;padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--turquoise-light)}
+.footer-address{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.footer-address i{color:var(--turquoise-light);font-size:16px;margin-top:2px}
+.footer-address-street{color:#fff;font-weight:700;font-size:13px}
+.footer-address-link{color:var(--turquoise-light);font-size:11px;text-decoration:underline}
+.footer-schedule{display:flex;align-items:center;gap:10px}
+.footer-schedule i{color:var(--turquoise-light);font-size:16px}
+.footer-schedule p{color:#9A9890;font-size:12.5px}
+.footer-bottom{border-top:1px solid var(--black-soft);padding-top:24px;text-align:center;color:var(--gray-muted);font-size:12px}
+@media(max-width:968px){
+.nav{display:none}
+.pair,.avis-grid{grid-template-columns:1fr}
+.mini-grid{grid-template-columns:1fr 1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+}
+@media(max-width:600px){
+.container{padding:0 20px}
+.mini-grid{grid-template-columns:1fr 1fr}
+.stats-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+}
+</style>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow eyebrow-light">Avis clients</p>
+      <h2>Ce qu'ils disent après<span style="color:#7DD3D8">.</span></h2>
+      <p>Chaque réalisation a un propriétaire. Voici ce qu'ils en pensent.</p>
+    </div>
+    <div class="avis-grid" style="margin-bottom:20px">
+      <div class="avis-card">
+        <div class="avis-card-photo bg1"><div class="avis-card-photo-icon"><i class="ti ti-car"></i></div><div class="car-badge">AUDI A4 · 2019</div></div>
+        <div class="avis-card-body">
+          <div class="avis-stars"><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i></div>
+          <p class="avis-text">« 80€ tout compris, franchement j'y croyais moyen. Ben en fait ils font vraiment tout. Voiture nickel dedans dehors. Rien à redire. »</p>
+          <div class="avis-author"><div class="avis-avatar">V</div><div><p class="avis-name">Vincent M.</p><p class="avis-source">Autun · Google Reviews</p></div></div>
+        </div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-photo bg4"><div class="avis-card-photo-icon"><i class="ti ti-car"></i></div><div class="car-badge">RENAULT CLIO · 2021</div></div>
+        <div class="avis-card-body">
+          <div class="avis-stars"><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i></div>
+          <p class="avis-text">« Deux enfants dans la voiture = catastrophe. Après leur passage, on aurait dit une voiture de sortie de concession. Un vrai bonheur. »</p>
+          <div class="avis-author"><div class="avis-avatar">S</div><div><p class="avis-name">Sophie L.</p><p class="avis-source">Mâcon · Google Reviews</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-card-photo bg3"><div class="avis-card-photo-icon"><i class="ti ti-car"></i></div><div class="car-badge">BMW SÉRIE 3 · 2020</div></div>
+        <div class="avis-card-body">
+          <div class="avis-stars"><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i></div>
+          <p class="avis-text">« Première voiture, j'avais peur de la confier. Accueil au top, résultat au top, prix clair. C'est simple, je reviendrai. »</p>
+          <div class="avis-author"><div class="avis-avatar">K</div><div><p class="avis-name">Karim B.</p><p class="avis-source">Autun · Google Reviews</p></div></div>
+        </div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-card-photo bg5"><div class="avis-card-photo-icon"><i class="ti ti-car"></i></div><div class="car-badge">PEUGEOT 208 · 2022</div></div>
+        <div class="avis-card-body">
+          <div class="avis-stars"><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i><i class="ti ti-star" aria-hidden="true"></i></div>
+          <p class="avis-text">« Le film brillant c'est vraiment un truc de dingue. Il a plu le lendemain, l'eau glissait toute seule sur la carrosserie. Je recommande à 200%. »</p>
+          <div class="avis-author"><div class="avis-avatar">L</div><div><p class="avis-name">Lucas D.</p><p class="avis-source">Chalon-sur-Saône · Google Reviews</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">En chiffres</p>
+      <h2>La preuve par les faits<span class="highlight">.</span></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box light"><p class="stat-box-num">4,9<span class="stat-box-unit" style="color:#F5A623">★</span></p><p class="stat-box-label">Note Google</p></div>
+      <div class="stat-box light"><p class="stat-box-num">200<span class="stat-box-unit" style="color:#2FA5AB">+</span></p><p class="stat-box-label">Clients satisfaits</p></div>
+      <div class="stat-box light"><p class="stat-box-num">80<span class="stat-box-unit" style="color:#2FA5AB">€</span></p><p class="stat-box-label">Prix unique</p></div>
+      <div class="stat-box dark"><p class="stat-box-num">100<span class="stat-box-unit" style="color:#7DD3D8">%</span></p><p class="stat-box-label">Made in France</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div style="max-width:500px;margin:0 auto">
+    <h2>Votre voiture sera la prochaine<span style="opacity:.7">.</span></h2>
+    <p>Même formule. Même résultat. 80€ tout compris.</p>
+    <a href="index.html#calendrier" class="cta-dark">Je réserve mon créneau — 80€ <i class="ti ti-arrow-right"></i></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="logo-icon"><i class="ti ti-car"></i></div>
+          <div class="logo-text"><span class="clean">CLEAN</span><span class="auto">AUTO</span><span class="lab">LAB</span></div>
+        </div>
+        <p class="footer-baseline">Une formule. 80€. Tout inclus. Le nettoyage auto sans prise de tête.</p>
+        <div class="footer-social">
+          <a href="#"><i class="ti ti-brand-instagram"></i></a>
+          <a href="#"><i class="ti ti-brand-tiktok"></i></a>
+          <a href="#"><i class="ti ti-brand-facebook"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <div class="footer-address">
+          <i class="ti ti-map-pin"></i>
+          <div>
+            <p class="footer-address-street">6 route de Sermoise</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=6+route+de+Sermoise" target="_blank" class="footer-address-link">Itinéraire Google Maps →</a>
+          </div>
+        </div>
+        <div class="footer-schedule">
+          <i class="ti ti-clock"></i>
+          <p>Lun–Sam · 8h30–18h30</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Le centre</h4>
+        <a href="formule.html">La formule</a>
+        <a href="notre-histoire.html">Notre histoire</a>
+        <a href="realisations.html">Réalisations</a>
+        <a href="index.html#calendrier">Réserver</a>
+      </div>
+      <div class="footer-col">
+        <h4>Aide</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 CleanAuto Lab — Produits CleanCar Lab — Made in France</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.querySelector('.header').classList.toggle('scrolled',window.scrollY>30)});
+</script>
+
+</body>
+</html>
